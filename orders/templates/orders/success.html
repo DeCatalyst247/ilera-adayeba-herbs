@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="text-center py-5">
+     
+    <h2>🎉 Order Placed Successfully!</h2>
+    {% if order.payment_status %}
+
+    <div class="alert alert-success">
+
+        <h4>✅ Payment Successful</h4>
+
+        <p>
+            Your order has been received successfully.
+        </p>
+
+        <p>
+            We will contact you shortly using your phone number.
+        </p>
+
+    </div>
+
+    <a href="{% url 'home' %}" class="btn btn-success">
+        Back Home
+    </a>
+
+    {% else %}
+
+    <div class="alert alert-warning">
+
+        <h4>Order Placed</h4>
+
+        <p>
+            Your order has been created but payment has not been completed.
+        </p>
+
+    </div>
+
+    <a href="{% url 'initiate_payment' order.id %}" class="btn btn-primary">
+        Pay Now
+    </a>
+
+    {% endif %}
+{% endblock%}

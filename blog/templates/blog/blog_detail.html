@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<img
+    src="{{ post.image.url }}"
+    class="img-fluid rounded mb-4"
+>
+
+<h1>
+    {{ post.title }}
+</h1>
+
+<p class="text-muted">
+    {{ post.created_at|date:"F d, Y" }}
+</p>
+
+<hr>
+
+<p>
+    {{ post.content|linebreaks }}
+</p>
+<hr>
+
+<h3>
+
+    Related Articles
+
+</h3>
+
+<div class="row">
+
+    {% for related in related_posts %}
+
+        <div class="col-md-4">
+
+            <div class="card">
+
+                <div class="card-body">
+
+                    <h5>
+
+                        {{ related.title }}
+
+                    </h5>
+
+                    <a
+                        href="{% url 'blog:blog_detail' related.slug %}"
+                    >
+                        Read More
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+</div>
+{% endblock %}

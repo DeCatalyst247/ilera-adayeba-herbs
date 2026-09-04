@@ -1,0 +1,293 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-4">
+
+    <h1 class="mb-5">
+        Admin Dashboard
+    </h1>
+
+    <!-- Statistics Cards -->
+
+    <div class="row">
+
+        <div class="col-md-3 mb-4">
+
+            <div class="card shadow-sm text-center h-100">
+
+                <div class="card-body">
+
+                    <h2 class="display-5">
+                        {{ total_products }}
+                    </h2>
+
+                    <p class="text-muted">
+                        Products
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3 mb-4">
+
+            <div class="card shadow-sm text-center h-100">
+
+                <div class="card-body">
+
+                    <h2 class="display-5">
+                        {{ total_posts }}
+                    </h2>
+
+                    <p class="text-muted">
+                        Blog Posts
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3 mb-4">
+
+            <div class="card shadow-sm text-center h-100">
+
+                <div class="card-body">
+
+                    <h2 class="display-5">
+                        {{ total_messages }}
+                    </h2>
+
+                    <p class="text-muted">
+                        Messages
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3 mb-4">
+
+            <div class="card shadow-sm text-center h-100">
+
+                <div class="card-body">
+
+                    <h2 class="display-5">
+                        {{ total_consultations }}
+                    </h2>
+
+                    <p class="text-muted">
+                        Consultations
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3 mb-4">
+
+            <div class="card shadow-sm text-center h-100">
+
+                <div class="card-body">
+
+                    <h2 class="display-5">
+                        {{ total_testimonials }}
+                    </h2>
+
+                    <p class="text-muted">
+                        Testimonials
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr class="my-5">
+
+    <h3 class="mb-4">
+        Product Category Analytics
+    </h3>
+
+    <div class="card shadow-sm">
+
+        <div class="card-body">
+
+            <canvas
+                id="categoryChart"
+                height="100">
+            </canvas>
+
+        </div>
+
+    </div>
+
+    <hr class="my-5">
+
+    <h3 class="mb-3">
+        Recent Messages
+    </h3>
+
+    <div class="table-responsive">
+
+        <table class="table table-bordered table-hover">
+
+            <thead class="table-light">
+
+                <tr>
+
+                    <th>Name</th>
+
+                    <th>Subject</th>
+
+                    <th>Date</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for message in recent_messages %}
+
+                <tr>
+
+                    <td>
+                        {{ message.name }}
+                    </td>
+
+                    <td>
+                        {{ message.subject }}
+                    </td>
+
+                    <td>
+                        {{ message.created_at }}
+                    </td>
+
+                </tr>
+
+                {% empty %}
+
+                <tr>
+
+                    <td colspan="3" class="text-center">
+
+                        No messages yet.
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <hr class="my-5">
+
+    <h3 class="mb-3">
+        Quick Actions
+    </h3>
+
+    <div class="d-flex flex-wrap gap-2">
+
+        <a
+            href="/admin/products/product/add/"
+            class="btn btn-success">
+            Add Product
+        </a>
+
+        <a
+            href="/admin/blog/blogpost/add/"
+            class="btn btn-primary">
+            Add Blog Post
+        </a>
+
+
+        <a
+            href="/admin/testimonials/testimonial/add/"
+            class="btn btn-warning">
+            Add Testimonial
+        </a>
+
+    </div>
+
+    </div>
+
+<script>
+
+window.onload = function() {
+
+    console.log("Chart Loaded:", typeof Chart);
+
+    const ctx = document.getElementById('categoryChart');
+
+    new Chart(ctx, {
+
+        type: 'bar',
+
+        data: {
+
+            labels: [
+
+                {% for name in category_names %}
+                    "{{ name }}",
+                {% endfor %}
+
+            ],
+
+            datasets: [{
+
+                label: 'Products',
+
+                data: [
+
+                    {% for count in category_counts %}
+                        {{ count }},
+                    {% endfor %}
+
+                ],
+
+                borderWidth: 1
+
+            }]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            scales: {
+
+                y: {
+
+                    beginAtZero: true
+
+                }
+
+            }
+
+        }
+
+    });
+
+};
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,457 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Hero Section -->
+
+<section class="bg-success text-white text-center py-5 rounded">
+
+    <div class="container">
+
+        <h1 class="display-4 fw-bold">
+
+            Ilera Adayeba Herbs 🌿
+
+        </h1>
+
+        <p class="lead">
+
+            Natural Wellness Through Traditional Herbal Knowledge
+
+        </p>
+
+        <a
+            href="/products/"
+            class="btn btn-light btn-lg mt-3"
+        >
+            Explore Products
+        </a>
+
+    </div>
+
+</section>
+
+<!-- About Section -->
+
+<section class="my-5">
+
+    <div class="row align-items-center">
+
+        <div class="col-md-6">
+
+            <h2>
+
+                About Ilera Adayeba
+
+            </h2>
+
+            <p>
+
+                At Ilera Adayeba Herbs, we believe nature provides valuable resources for wellness. Our mission is to promote healthy living through carefully selected herbal products and educational health content.
+
+            </p>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <img
+                src="{% static 'images/herbal-homepage.png' %}"
+                class="img-fluid rounded shadow"
+                alt="herbal-homepage"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="my-5">
+
+    <h2
+        class="text-center mb-5"
+    >
+
+        Why Choose Us
+
+    </h2>
+
+    <div class="row text-center">
+
+        <div class="col-md-4">
+
+            <h4>
+
+                🌿 Natural Ingredients
+
+            </h4>
+
+            <p>
+
+                Carefully selected herbs inspired by traditional knowledge.
+
+            </p>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <h4>
+
+                📚 Health Education
+
+            </h4>
+
+            <p>
+
+                We share wellness information through our Herbal Knowledge Center.
+
+            </p>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <h4>
+
+                🤝 Personalized Support
+
+            </h4>
+
+            <p>
+
+                Consultation options for visitors seeking guidance.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<hr>
+
+<!-- Featured Products -->
+
+<h2 class="mb-4 text-center">
+
+    Featured Products
+
+</h2>
+
+<div class="row">
+
+    {% for product in featured_products %}
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card shadow-sm h-100">
+
+            <img
+                src="{{ product.image.url }}"
+                class="card-img-top"
+                style="height:250px; object-fit:cover;"
+            >
+
+            <div class="card-body">
+
+                <h5>
+
+                    {{ product.name }}
+
+                </h5>
+
+                <p>
+
+                    {{ product.description|truncatewords:15 }}
+
+                </p>
+
+                <p class="fw-bold text-success">
+
+                    ₦{{ product.price }}
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+<!-- Consultation CTA -->
+
+<section class="bg-light p-5 text-center rounded my-5">
+
+    <h2>
+
+        Need Herbal Consultation?
+
+    </h2>
+
+    <p>
+
+        Speak with us and receive guidance on suitable herbal wellness options.
+
+    </p>
+
+    <a
+        href="/consultation/"
+        class="btn btn-success"
+    >
+        Request Consultation
+    </a>
+
+</section>
+
+<hr>
+
+<!-- Testimonials -->
+
+<h2 class="mb-4 text-center">
+
+    What Our Customers Say
+
+</h2>
+
+<div class="row">
+
+    {% for testimonial in featured_testimonials %}
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card shadow-sm h-100">
+
+            <div class="card-body">
+
+                <h5>
+
+                    {{ testimonial.name }}
+
+                </h5>
+
+                <p class="text-muted">
+
+                    {{ testimonial.location }}
+
+                </p>
+
+                <p>
+
+                    "{{ testimonial.testimonial }}"
+
+                </p>
+
+                <p>
+
+                    ⭐ {{ testimonial.rating }}/5
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+<hr>
+
+<!-- Statistics -->
+
+<div class="row text-center py-5">
+
+    <div class="col-md-3">
+
+        <h2>100+</h2>
+
+        <p>Happy Customers</p>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <h2>20+</h2>
+
+        <p>Herbal Products</p>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <h2>5+</h2>
+
+        <p>Years of Knowledge</p>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <h2>95%</h2>
+
+        <p>Customer Satisfaction</p>
+
+    </div>
+
+</div>
+<section
+    class="bg-dark text-white p-5 rounded text-center my-5"
+>
+
+    <h2>
+
+        Begin Your Wellness Journey
+
+    </h2>
+
+    <p>
+
+        Discover herbal solutions and learn healthier lifestyle habits.
+
+    </p>
+
+    <a
+        href="/products/"
+        class="btn btn-success"
+    >
+
+        Shop Now
+
+    </a>
+    <a
+    href="https://wa.me/2349024724718?text=Hello%20Ilera%20Adayeba%20Herbs,%20I%20would%20like%20a%20consultation."
+    target="_blank"
+    class="btn btn-outline-success ms-2"
+    >
+
+    Consult on WhatsApp
+
+    </a>
+
+</section>
+<hr>
+
+<!-- Latest Blog Posts -->
+
+<h2 class="mb-4 text-center">
+
+    Latest Health Articles
+
+</h2>
+
+<div class="row">
+
+    {% for post in latest_posts %}
+
+    <div class="col-md-4 mb-4">
+
+        <div class="card shadow-sm h-100">
+
+            <img
+                src="{{ post.image.url }}"
+                class="card-img-top"
+                style="height:250px; object-fit:cover;"
+            >
+
+            <div class="card-body">
+
+                <h5>
+
+
+                    {{ post.title }}
+
+                </h5>
+
+                <a
+                    href="{% url 'blog:blog_detail' post.slug %}"
+                    class="btn btn-outline-success"
+                >
+                    Read Article
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+<hr>
+
+<section
+    class="bg-success text-white p-5 rounded text-center"
+>
+
+    <h2>
+
+        Join Our Wellness Community
+
+    </h2>
+
+    <p>
+
+        Receive herbal wellness tips,
+        health articles and product updates.
+
+    </p>
+
+    <form
+        method="POST"
+        action="{% url 'subscribe' %}"
+        class="row justify-content-center"
+    >
+
+        {% csrf_token %}
+
+        <div class="col-md-4">
+
+            <input
+                type="email"
+                name="email"
+                class="form-control"
+                placeholder="Enter your email"
+                required
+            >
+
+        </div>
+
+        <div class="col-md-2">
+
+            <button
+                class="btn btn-light w-100"
+            >
+
+                Subscribe
+
+            </button>
+
+        </div>
+
+    </form>
+
+</section>
+<!-- Disclaimer -->
+
+<div class="alert alert-warning mt-5">
+
+    <small>
+
+        These herbal products are based on traditional knowledge.
+        Results may vary from person to person.
+        They are not intended to diagnose, treat, cure, or replace professional medical advice.
+
+    </small>
+
+</div>
+
+{% endblock %}

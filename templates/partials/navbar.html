@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+
+    <div class="container">
+
+        <a
+            class="navbar-brand fw-bold"
+            href="/"
+        >
+            Ilera Adayeba
+        </a>
+
+        <div>
+
+            <a
+                class="text-white me-3"
+                href="/products/"
+            >
+                Products
+            </a>
+
+        </div>
+        <div>
+
+                <a
+            
+                href="{% url 'cart_detail' %}"
+                class="text-white me-3"
+                >
+                  Cart
+
+                </a>
+
+        </div>
+        <div>
+            <a
+                href="{% url 'contact:contact_page' %}"
+                class="text-white me-3"
+            >
+                Contact
+            </a>
+        </div>
+        <div>
+            {% if user.is_staff %}
+
+            <a
+                href="{% url 'dashboard:admin_dashboard' %}"
+                class="text-white me-3"
+            >
+                Dashboard
+            </a>
+
+            {% endif %}
+            
+
+
+        </div>
+        <div>
+           <a
+                href="{% url 'contact:consultation_page' %}"
+                class="text-white me-3"
+            >
+                Consultation
+            </a>
+        </div>
+        <div>
+            <a
+                class="text-white me-3"
+                href="{% url 'blog:blog_list' %}"
+>
+                Knowledge Center
+            </a>
+        </div>
+
+    </div>
+
+</nav>

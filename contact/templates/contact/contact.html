@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="mb-4">
+    Contact Us
+</h1>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button
+        class="btn btn-success"
+    >
+        Send Message
+    </button>
+
+</form>
+<div class="alert alert-success mt-4">
+
+Need urgent assistance?
+
+<a
+href="https://wa.me/2348123456789"
+target="_blank"
+>
+
+Chat With Us On WhatsApp
+
+</a>
+
+</div>
+<div class="card mt-4">
+
+<div class="card-body">
+
+<h4>
+
+Business Hours
+
+</h4>
+
+<p>
+
+Monday - Friday:
+8:00 AM - 6:00 PM
+
+</p>
+
+<p>
+
+Saturday:
+9:00 AM - 3:00 PM
+
+</p>
+
+<p>
+
+Sunday:
+Closed
+
+</p>
+
+</div>
+
+</div>
+<div class="card mt-4">
+
+<div class="card-body">
+
+<h4>
+
+Location
+
+</h4>
+
+<p>
+
+Lagos, Nigeria
+
+</p>
+
+</div>
+
+</div>
+{% endblock %}

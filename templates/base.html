@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>
+
+        {% block title %}
+
+            Ilera Adayeba Herbs
+
+        {% endblock %}
+
+    </title>
+
+    <meta
+        name="description"
+        content="Traditional herbal wellness products, herbal consultation, and health education from Ilera Adayeba Herbs."
+    >
+
+    <meta
+        name="keywords"
+        content="Herbs, Herbal Medicine, Wellness, Herbal Products, Nigeria, Natural Health"
+    >
+
+<meta
+    name="author"
+    content="Ilera Adayeba Herbs"
+>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+{% load static %}
+
+<link
+    rel="icon"
+    href="{% static 'images/favicon.ico' %}"
+>
+
+<style>
+
+.whatsapp-float{
+
+position:fixed;
+
+width:60px;
+
+height:60px;
+
+bottom:20px;
+
+right:20px;
+
+background:#25D366;
+
+color:white;
+
+border-radius:50%;
+
+text-align:center;
+
+font-size:30px;
+
+line-height:60px;
+
+text-decoration:none;
+
+z-index:1000;
+
+box-shadow:0 4px 10px rgba(0,0,0,.3);
+
+}
+
+</style>
+</head>
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+<body>
+
+    {% include 'partials/navbar.html' %}
+
+    <div class="container">
+        {% if messages %}
+
+            {% for message in messages %}
+
+                <div
+                    class="alert alert-success"
+                >
+
+                    {{ message }}
+
+                </div>
+
+            {% endfor %}
+
+{% endif %}
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    {% include 'partials/footer.html' %}
+
+<script
+src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<a
+href="https://wa.me/2349024724718"
+target="_blank"
+class="whatsapp-float"
+>
+
+💬
+
+</a>
+</body>
+</html>

@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -144,5 +145,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-PAYSTACK_SECRET_KEY =os.environ.get("sk_test_c30d53e5b4b4d7b95bb219c6da02f8c93cd2d431")
+"""PAYSTACK_SECRET_KEY =os.environ.get("sk_test_c30d53e5b4b4d7b95bb219c6da02f8c93cd2d431")
+
 PAYSTACK_PUBLIC_KEY =os.environ.get("pk_test_df099a8ac822f0bce1d5e10c89294e59f86f803b")
+
+"""
+
+
+PAYSTACK_SECRET_KEY ="sk_test_c30d53e5b4b4d7b95bb219c6da02f8c93cd2d431"
+
+PAYSTACK_PUBLIC_KEY ="pk_test_df099a8ac822f0bce1d5e10c89294e59f86f803b"

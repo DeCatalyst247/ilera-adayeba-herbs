@@ -39,21 +39,7 @@
                 Contact
             </a>
         </div>
-        <div>
-            {% if user.is_staff %}
-
-            <a
-                href="{% url 'dashboard:admin_dashboard' %}"
-                class="text-white me-3"
-            >
-                Dashboard
-            </a>
-
-            {% endif %}
-            
-
-
-        </div>
+        
         <div>
            <a
                 href="{% url 'contact:consultation_page' %}"
@@ -69,6 +55,23 @@
 >
                 Knowledge Center
             </a>
+        </div>
+
+
+         <div>
+            {% if user.is_staff %}
+
+            <a
+                href="{% url 'dashboard:admin_dashboard' %}"
+                class="text-white me-3"
+            >
+                Dashboard
+            </a>
+
+            {% endif %}
+            
+
+
         </div>
 
     </div>
